@@ -17,7 +17,7 @@ const userSchema = new Schema({
         type: String,
         trim: true,
         required: true,
-        mix: 6,
+        min: 6,
         max: 64
     },
     stripe_account_id: '',

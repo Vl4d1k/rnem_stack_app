@@ -8,7 +8,6 @@ require('dotenv').config();
 
 const app = express();
 
-console.log('DATABASE: ', process.env.DATABASE);
 //db connection
 mongoose
     .connect(process.env.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true})

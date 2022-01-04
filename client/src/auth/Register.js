@@ -1,36 +1,48 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { register } from "../actions/auth";
 
-import RegistrationHeader from './../components/auth/registration/Header';
-import RegistrationForm from './../components/auth/registration/Form';
+import RegistrationHeader from "./../components/auth/registration/Header";
+import RegistrationForm from "./../components/auth/registration/Form";
 
-import {registerUser} from './../api';
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const result = registerUser(name, email, password);
+        try {
+            await register({ 
+                name, 
+                email, 
+                password 
+            });
+            toast.success("Register success. Please login.");
+        } catch (err) {
+            toast.error(`Error occurred.\n${err.response.data}`);
+        }
     };
 
     return (
-        <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-            
-            <RegistrationHeader />
+        <>
+            <ToastContainer />
+            <div className="min-h-full flex flex-col justify-center bg-gray-50 py-12 sm:px-6 lg:px-8">
+                <RegistrationHeader />
 
-            <RegistrationForm 
-                handleSubmit={handleSubmit} 
-                name={name}
-                setName={setName}
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-            />
-            
-        </div>
+                <RegistrationForm
+                    handleSubmit={handleSubmit}
+                    name={name}
+                    setName={setName}
+                    email={email}
+                    setEmail={setEmail}
+                    password={password}
+                    setPassword={setPassword}
+                />
+            </div>
+        </>
     );
 };
 

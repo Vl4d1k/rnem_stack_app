@@ -8,19 +8,11 @@ const Form = ({handleSubmit, name, setName, email, setEmail, password, setPasswo
             <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
                 <form className="space-y-6" onSubmit={handleSubmit}>
 
-                    <TextInput property={'name'} value={name} setProperty={setName} />
+                    <TextInput property='name' value={name} setProperty={setName} />
 
                     <EmailInput email={email} setEmail={setEmail} />
 
                     <PasswordInput password={password} setPassword={setPassword} />
-
-                    <div className="flex items-center justify-between">
-                        <div className="text-sm">
-                            <p className="font-medium text-indigo-600 hover:text-indigo-500">
-                                Forgot your password?
-                            </p>
-                        </div>
-                    </div>
 
                     <div>
                         <button

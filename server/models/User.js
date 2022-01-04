@@ -40,4 +40,15 @@ userSchema.pre('save', function(next) {
     return next();
 });
 
+userSchema.methods.comparePassword = function (password, next) {
+    bcrypt.compare(password, this.password, function(err, match) {
+        if (err) {
+            console.log('Compare password error.');
+            return next(err, false);
+        }
+        console.log('Password is correct.');
+        return next(null, match);
+    })
+};
+
 export default model("User", userSchema);

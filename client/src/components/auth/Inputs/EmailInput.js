@@ -1,4 +1,4 @@
-const EmailInput = ( { email, setEmail } ) => {
+const EmailInput = ({ email, setEmail }) => {
     return (
         <div>
             <label

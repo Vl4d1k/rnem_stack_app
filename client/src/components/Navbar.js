@@ -6,7 +6,7 @@ import logo from '../logo.svg';
 const Navbar = () => {
     const navigation = [
         { name: "Home", href: "/" },
-        { name: "Dashboard", href: "/dashboard" },
+        { name: "Dashboard", href: "/dashboard" }
     ];
 
     const { auth } = useSelector((state) => ({ ...state }));

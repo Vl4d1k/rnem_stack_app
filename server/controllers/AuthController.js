@@ -52,7 +52,7 @@ export const login = async (req, res) => {
                 name: user.name, 
                 email: user.email,
                 updated_at: user.updatedAt,
-                created_at: user.created_at
+                updated_at: user.createdAt  
             }
         });
     } catch (err) {

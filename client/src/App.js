@@ -6,6 +6,8 @@ import Register from "./auth/Register";
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./user/Dashboard";
+import DashboardSeller from "./user/DashboardSeller";
+import NewHotel from "./hotels/NewHotel";
 
 function App() {
     return (
@@ -18,8 +20,20 @@ function App() {
                 <Route exact path="/register" element={<Register/>}/>
 
                 <Route
+                    exact
                     path="/dashboard"
-                    element={<PrivateRoute path="/dashboard" component={Dashboard} />}
+                    element={<PrivateRoute component={Dashboard} />}
+                />
+
+                <Route
+                    exact 
+                    path="/dashboard/seller"
+                    element={<PrivateRoute component={DashboardSeller} />}
+                />
+                <Route
+                    exact 
+                    path="/hotels/new"
+                    element={<PrivateRoute component={NewHotel} />}
                 />
             </Routes>
         </BrowserRouter>

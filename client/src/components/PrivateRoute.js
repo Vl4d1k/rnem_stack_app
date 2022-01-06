@@ -7,8 +7,4 @@ const PrivateRoute = ({component: RouteComponent}) => {
     return auth && auth.token ? <RouteComponent/> : <Navigate to='/login'/>;
 }
 
-PrivateRoute.propTypes = {
-    component: React.ComponentType
-};
-
 export default PrivateRoute;

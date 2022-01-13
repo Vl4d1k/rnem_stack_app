@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 const Dashboard = () => {
     return (
         <>
-            <div className="bg-gray-50 p-5">
-                <ConnectNav />
-            </div>
+            <ConnectNav />
 
             <DashboardNav />
 

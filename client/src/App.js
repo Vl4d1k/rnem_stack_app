@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import Home from "./booking/Home";
 import Login from "./auth/Login";
@@ -9,9 +10,12 @@ import Dashboard from "./user/Dashboard";
 import DashboardSeller from "./user/DashboardSeller";
 import NewHotel from "./hotels/NewHotel";
 
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
     return (
         <BrowserRouter>
+            <ToastContainer />
             <Navbar />
             <Routes>
                 <Route exact path="/" element={<Home/>}/>

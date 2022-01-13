@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { register } from "../actions/auth";
 
 import RegistrationHeader from "./../components/auth/registration/Header";
 import RegistrationForm from "./../components/auth/registration/Form";
-
-import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
     const [name, setName] = useState("");
@@ -28,7 +26,6 @@ const Register = () => {
 
     return (
         <>
-            <ToastContainer />
             <div className="min-h-full flex flex-col justify-center bg-gray-50 py-12 sm:px-6 lg:px-8">
                 <RegistrationHeader />
 

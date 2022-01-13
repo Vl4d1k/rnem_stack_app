@@ -1,16 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 
 const DashboardNav = () => {
-    const active = window.location.pathname;
+
+    const navigate = useNavigate();
+
+    const [activeTab, setActiveTab] = useState(window.location.pathname);
 
     const tabs = [
-        { name: "Your Bookings", href: "/dashboard", current: active === "/dashboard" ? true : false },
-        { name: "Your Hotels", href: "/dashboard/seller", current: active === "/dashboard/seller" ? true : false },
+        { name: "Your Bookings", href: "/dashboard", current: activeTab === "/dashboard" ? true : false },
+        { name: "Your Hotels", href: "/dashboard/seller", current: activeTab === "/dashboard/seller" ? true : false },
     ];
 
-    function classNames(...classes) {
+    
+    const classNames = (...classes) => {
         return classes.filter(Boolean).join(' ')
     }
+
+    const handleTabChange = (event) => {
+        navigate(event.target.value);
+    }
+
 
     return (
             <div>
@@ -19,14 +30,16 @@ const DashboardNav = () => {
                         Select a tab
                     </label>
                     <select
+                        value={activeTab}
+                        onChange={handleTabChange}
                         id="tabs"
                         name="tabs"
                         className="block w-full focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                        defaultValue={tabs.find((tab) => tab.current).name}
                     >
-                        {tabs.map((tab, tabIdx) => (
+                        {tabs.map((tab) => (
                             <option 
                                 key={tab.name}
+                                value={tab.href}
                             >
                                 {tab.name}
                             </option>

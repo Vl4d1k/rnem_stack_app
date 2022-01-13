@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { login } from "../actions/auth";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 
 import LoginForm from "./../components/auth/login/Form";
-
-import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
 
@@ -44,8 +42,6 @@ const Login = () => {
 
     return (
         <div className="min-h-full flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            
-            <ToastContainer />
 
             <LoginForm 
                     handleSubmit={handleSubmit} 

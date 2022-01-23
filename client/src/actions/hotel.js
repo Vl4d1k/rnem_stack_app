@@ -7,5 +7,12 @@ export const createHotel = async (token, data) =>
         },
     });
 
+export const getSellerHotels = async (token) =>
+    await axios.get(`${process.env.REACT_APP_API}/hotel/hotels-seller`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
 export const getAllHotels = async () => 
     await axios.get(`${process.env.REACT_APP_API}/hotels`);

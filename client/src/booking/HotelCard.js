@@ -1,7 +1,7 @@
 const HotelCard = ({ hotel }) => {
     return (
-        <div className="flex flex-col h-screen">
-            <div className="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 md:max-w-7xl mx-auto border border-white bg-white">
+        <>
+            <div className="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 md:max-w-7xl mx-auto border border-white bg-white mt-4">
                 <div className="w-full md:w-1/5 bg-white grid place-items-center">
                     <img
                         src={`${process.env.REACT_APP_API}/hotel/image/${hotel._id}`}
@@ -57,7 +57,7 @@ const HotelCard = ({ hotel }) => {
                     </p>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

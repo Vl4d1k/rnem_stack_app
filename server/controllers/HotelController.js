@@ -1,4 +1,3 @@
-import jwt from "jsonwebtoken";
 import fs from 'fs';
 
 import Hotel from "../models/hotel";
@@ -6,6 +5,7 @@ import Hotel from "../models/hotel";
 export const create = async (req, res) => {
     try {
         let hotel = new Hotel(req.fields); 
+        hotel.postedBy = req.user._id;
         let files = req.files;
         if (files.image) {
             hotel.image.data = fs.readFileSync(files.image.path);
@@ -41,4 +41,12 @@ export const getImage = async (req, res) => {
         res.set('Content-Type', hotel.image.contentType);
         return res.send(hotel.image.data);
     }
+}
+
+export const getUserHotels = async (req, res) => {
+    let hotels = await Hotel.find({ postedBy: req.user._id})
+        .select('-image.data')
+        .populate('postedBy', '_id name')
+        .exec();
+    res.send(hotels);
 }

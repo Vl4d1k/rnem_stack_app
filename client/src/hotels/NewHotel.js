@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import {toast} from "react-toastify";
 
-import { createHotel } from "../actions/hotel";
+import {createHotel} from "../actions/hotel";
 
 const NewHotel = () => {
-    const { auth } = useSelector((state) => ({ ...state }));
-    const { token } = auth;
+    const {auth} = useSelector((state) => ({...state}));
+    const {token} = auth;
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -235,7 +235,7 @@ const NewHotel = () => {
                                                                 fillRule="evenodd"
                                                                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                                                 clipRule="evenodd"
-                                                            ></path>
+                                                            />
                                                         </svg>
                                                     </button>
                                                 </div>
@@ -247,7 +247,8 @@ const NewHotel = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                    <div
+                                        className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                         <div className="space-y-1 text-center">
                                             <svg
                                                 className="mx-auto h-12 w-12 text-gray-400"

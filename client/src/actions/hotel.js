@@ -14,5 +14,12 @@ export const getSellerHotels = async (token) =>
         },
     });
 
+export const deleteSellerHotel = async (token, hotelId) =>
+    await axios.delete(`${process.env.REACT_APP_API}/delete-hotel/${hotelId}`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
 export const getAllHotels = async () => 
     await axios.get(`${process.env.REACT_APP_API}/hotels`);

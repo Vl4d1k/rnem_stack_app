@@ -50,3 +50,8 @@ export const getUserHotels = async (req, res) => {
         .exec();
     res.send(hotels);
 }
+
+export const deleteHotel = async (req, res) => {
+    let removed = await Hotel.findByIdAndDelete(req.params.hotelId).exec();
+    res.json(removed);
+}

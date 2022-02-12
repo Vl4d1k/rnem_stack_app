@@ -1,8 +1,8 @@
 import express from "express";
 import formidable from 'express-formidable';
 
-import { create, getHotels, getImage, getUserHotels } from "../controllers/HotelController";
-import { requireSignin } from "../middlewares";
+import {create, deleteHotel, getHotels, getImage, getUserHotels} from "../controllers/HotelController";
+import { requireSignin, hotelOwner } from "../middlewares";
 
 const router = express.Router();
 
@@ -13,5 +13,7 @@ router.get('/hotels', getHotels);
 router.get('/hotel/image/:hotelId', getImage);
 
 router.get('/hotel/hotels-seller', requireSignin, getUserHotels);
+
+router.delete('/delete-hotel/:hotelId', requireSignin, hotelOwner, deleteHotel);
 
 module.exports = router;
